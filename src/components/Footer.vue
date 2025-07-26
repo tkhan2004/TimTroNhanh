@@ -29,20 +29,20 @@
               <svg viewBox="0 0 24 24" class="footer-icon">
                 <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
               </svg>
-              0123 456 789
+              0123 456 12
             </li>
             <li>
               <svg viewBox="0 0 24 24" class="footer-icon">
                 <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
               </svg>
-              hotro@thuetro.com
+              thanhkhangdev@gmail.com
             </li>
             <li>
               <svg viewBox="0 0 24 24" class="footer-icon">
                 <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                 <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
               </svg>
-              Tầng 3, Tòa nhà ABC, Quận 1, TP.HCM
+              Huỳnh Văn Nghệ, Phường 12, Gò Vấp, TP HCM.
             </li>
           </ul>
         </div>
@@ -75,7 +75,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2024 Thuê Trọ. Bản quyền thuộc về Thuê Trọ.</p>
+        <p>&copy; 2025 Tìm Trọ nhanh. Bản quyền thuộc về Tìm Trọ nhanh.</p>
       </div>
     </div>
   </footer>
@@ -85,104 +85,4 @@
 // No additional logic needed for this component
 </script>
 
-<style scoped>
-.site-footer {
-  background-color: #f8f9fa;
-  color: #333;
-  padding: 40px 0;
-}
-
-.footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-}
-
-.footer-column {
-  display: flex;
-  flex-direction: column;
-}
-
-.footer-column-title {
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-  color: #007bff;
-  text-transform: uppercase;
-}
-
-.footer-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-links li {
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-}
-
-.footer-links a {
-  color: #666;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer-links a:hover {
-  color: #007bff;
-}
-
-.footer-icon {
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
-  color: #007bff;
-}
-
-.footer-social-links {
-  display: flex;
-  gap: 15px;
-}
-
-.social-link {
-  color: #666;
-  transition: color 0.3s ease;
-}
-
-.social-link:hover {
-  color: #007bff;
-}
-
-.social-icon {
-  width: 24px;
-  height: 24px;
-}
-
-.footer-bottom {
-  margin-top: 30px;
-  text-align: center;
-  padding-top: 20px;
-  border-top: 1px solid #e0e0e0;
-  color: #888;
-  font-size: 0.9rem;
-}
-
-@media (max-width: 992px) {
-  .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 576px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
+<style src="@/assets/css/Footer.css"></style>
