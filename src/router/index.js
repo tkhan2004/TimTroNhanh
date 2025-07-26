@@ -1,36 +1,65 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '@/views/Home.vue'
-import Login from '@/views/Login.vue'
-import RoomList from '@/views/RoomList.vue'
-import RoomDetail from '@/views/RoomDetail.vue'
-import Post from '@/views/Post.vue'
+import Home from '@/pages/Home.vue'
+import Login from '@/components/Login.vue'
+import RoomList from '@/pages/RoomList.vue'
+import RoomDetail from '@/pages/RoomDetail.vue'
+import Post from '@/pages/Post.vue'
+import DashboardLayout from '@/layouts/DashboardLayout.vue'
+import DashboardOverview from '@/pages/dashboard/DashboardOverview.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: () => import('@/pages/Home.vue')
   },
   {
     path: '/login',
     name: 'Login',
-    component: Login
+    component: () => import('@/components/Login.vue')
   },
   {
     path: '/rooms',
     name: 'RoomList',
-    component: RoomList
+    component: () => import('@/pages/RoomList.vue')
   },
   {
     path: '/room/:id',
     name: 'RoomDetail',
-    component: RoomDetail,
-    props: true  // This allows passing route params as props
+    component: () => import('@/pages/RoomDetail.vue'),
+    props: true
   },
   {
     path: '/post',
     name: 'Post',
-    component: Post
+    component: () => import('@/pages/Post.vue')
+  },
+  // Dashboard routes
+  {
+    path: '/dashboard',
+    component: DashboardLayout,
+    children: [
+      {
+        path: '',
+        name: 'DashboardOverview',
+        component: () => import('@/pages/dashboard/DashboardOverview.vue')
+      },
+      {
+        path: 'post',
+        name: 'PostRoom',
+        component: () => import('@/pages/dashboard/PostRoom.vue')
+      },
+      {
+        path: 'rooms',
+        name: 'RoomManagement',
+        component: () => import('@/pages/dashboard/RoomManagement.vue')
+      },
+      {
+        path: 'analytics',
+        name: 'Analytics',
+        component: () => import('@/pages/dashboard/Analytics.vue')
+      }
+    ]
   }
 ]
 
