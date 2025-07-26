@@ -1,0 +1,11 @@
+// Export tất cả icons
+export { default as HomeIcon } from './HomeIcon.vue'
+export { default as BuildingIcon } from './BuildingIcon.vue'
+export { default as UsersIcon } from './UsersIcon.vue'
+export { default as CreditCardIcon } from './CreditCardIcon.vue'
+export { default as BarChartIcon } from './BarChartIcon.vue'
+export { default as MenuIcon } from './MenuIcon.vue'
+export { default as BellIcon } from './BellIcon.vue'
+export { default as LogOutIcon } from './LogOutIcon.vue'
+export { default as EyeIcon } from './EyeIcon.vue'
+export { default as PlusIcon } from './PlusIcon.vue'

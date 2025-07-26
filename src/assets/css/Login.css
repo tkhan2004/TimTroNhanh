@@ -1,0 +1,343 @@
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 400px;
+  max-height: 85vh;
+  height: auto;
+  position: relative;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Demo accounts - fixed positioning */
+.demo-accounts {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  font-size: 0.65rem;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 4px;
+  padding: 0.3rem;
+  max-width: 160px;
+  z-index: 10;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.demo-accounts:hover {
+  opacity: 1;
+}
+
+.demo-accounts summary {
+  cursor: pointer;
+  font-weight: 500;
+  color: #777;
+  list-style: none;
+  padding: 0.1rem;
+  font-size: 0.6rem;
+}
+
+.demo-accounts summary::-webkit-details-marker {
+  display: none;
+}
+
+.demo-accounts summary::before {
+  content: "💡 ";
+  margin-right: 0.2rem;
+}
+
+.demo-list {
+  margin-top: 0.2rem;
+  padding-left: 0.2rem;
+}
+
+.demo-list div {
+  margin-bottom: 0.1rem;
+  color: #666;
+  line-height: 1.1;
+  font-size: 0.6rem;
+}
+
+/* Add padding bottom to modal content to avoid overlap with demo */
+.login-modal {
+  padding-bottom: 3rem;
+}
+
+.register-modal {
+  padding-bottom: 2rem;
+}
+
+/* Header */
+.modal-header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.login-logo {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 0.5rem;
+}
+
+.modal-header h2 {
+  margin: 0.5rem 0 0.25rem 0;
+  font-size: 1.4rem;
+  color: #333;
+}
+
+.welcome-text {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #999;
+}
+
+/* Social login */
+.social-login {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.social-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.social-btn:hover {
+  background: #f8f9fa;
+}
+
+.social-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Divider */
+.divider {
+  text-align: center;
+  margin: 1rem 0;
+  position: relative;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #eee;
+}
+
+.divider span {
+  background: white;
+  padding: 0 1rem;
+  color: #666;
+  font-size: 0.8rem;
+}
+
+/* Forms */
+.login-form, .register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.forgot-password {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.terms-agreement {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.btn {
+  padding: 0.7rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: #007bff;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #0056b3;
+}
+
+.btn-primary:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* Footer */
+.modal-footer {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* Alerts */
+.alert {
+  padding: 0.6rem;
+  border-radius: 6px;
+  margin-top: 0.8rem;
+  font-size: 0.85rem;
+}
+
+.alert-error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.alert-success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+/* Mobile responsive */
+@media (max-width: 480px) {
+  .modal-content {
+    padding: 1rem;
+    margin: 0.5rem;
+    max-width: calc(100% - 1rem);
+  }
+  
+  .login-logo {
+    width: 50px;
+    height: 35px;
+  }
+  
+  .modal-header h2 {
+    font-size: 1.2rem;
+  }
+  
+  .welcome-text {
+    font-size: 0.8rem;
+  }
+  
+  .social-btn {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+  }
+  
+  .social-icon {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .form-input {
+    padding: 0.6rem;
+    font-size: 0.85rem;
+  }
+  
+  .form-row {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  
+  .demo-accounts {
+    position: static;
+    margin-top: 1rem;
+    max-width: 100%;
+  }
+  
+  .login-modal,
+  .register-modal {
+    padding-bottom: 2rem;
+  }
+}

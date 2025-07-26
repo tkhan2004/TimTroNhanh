@@ -1,0 +1,109 @@
+/* Styles for Post.vue (basic utility classes, can be expanded as needed) */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.text-xl {
+  font-size: 1.25rem;
+}
+.font-bold {
+  font-weight: bold;
+}
+.mb-4 {
+  margin-bottom: 1rem;
+}
+.space-y-3 > * + * {
+  margin-top: 0.75rem;
+}
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+}
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+.w-full {
+  width: 100%;
+}
+.alert {
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+.mt-4 {
+  margin-top: 1rem;
+}
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+.max-w-xl {
+  max-width: 600px;
+}
+
+.login-required {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+}
+
+.login-prompt {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+}
+
+.prompt-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1.5rem;
+  fill: #007bff;
+}
+
+.login-prompt h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.login-prompt p {
+  color: #6b7280;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.login-prompt .btn {
+  padding: 0.875rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
