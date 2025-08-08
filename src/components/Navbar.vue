@@ -1,5 +1,5 @@
 <template>
-  <nav class="site-navbar">
+  <nav :class="['site-navbar', { 'navbar-scrolled': isScrolled, 'navbar-hidden': isHidden }]">
     <div class="navbar-container">
       <div class="navbar-brand">
         <router-link to="/" class="navbar-logo">
@@ -206,7 +206,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 import Login from './Login.vue'
@@ -219,66 +219,100 @@ const menuOpen = ref(false)
 const showLoginModal = ref(false)
 const showRegisterModal = ref(false)
 
-/** Computed properties từ store */
 const isLoggedIn = computed(() => authStore.isLoggedIn)
 const currentUser = computed(() => authStore.user)
 const isLandlord = computed(() => authStore.user?.role === 'landlord')
 
-/** Khôi phục session khi component mount */
 onMounted(() => {
   authStore.restoreSession()
+  window.addEventListener('scroll', handleScroll)
 })
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
+
+const lastScrollY = ref(window.scrollY)
+const isScrolled = ref(false)
+const isHidden = ref(false)
+
+function handleScroll() {
+  const currentY = window.scrollY
+  isScrolled.value = currentY > 40
+  if (currentY > lastScrollY.value && currentY > 80) {
+    isHidden.value = true // Kéo xuống: ẩn
+  } else {
+    isHidden.value = false // Kéo lên: hiện
+  }
+  lastScrollY.value = currentY
+}
 
 const toggleMenu = () => { menuOpen.value = !menuOpen.value }
 const closeMenu = () => { menuOpen.value = false }
-
 const openLoginModal = () => {
   showLoginModal.value = true
   showRegisterModal.value = false
   closeMenu()
 }
-
 const openRegisterModal = () => {
   showRegisterModal.value = true
   showLoginModal.value = false
   closeMenu()
 }
-
-const closeLoginModal = () => {
-  showLoginModal.value = false
-}
-
-const closeRegisterModal = () => {
-  showRegisterModal.value = false
-}
-
-const switchToRegister = () => {
-  closeLoginModal()
-  openRegisterModal()
-}
-
-const switchToLogin = () => {
-  closeRegisterModal()
-  openLoginModal()
-}
-
-/** Logout */
+const closeLoginModal = () => { showLoginModal.value = false }
+const closeRegisterModal = () => { showRegisterModal.value = false }
+const switchToRegister = () => { closeLoginModal(); openRegisterModal() }
+const switchToLogin = () => { closeRegisterModal(); openLoginModal() }
 const handleLogout = () => {
   authStore.logout()
   router.push({ name: 'Home' })
   closeMenu()
 }
-
-/** Go to dashboard */
 const goToDashboard = () => {
   router.push({ name: 'DashboardOverview' })
   closeMenu()
 }
-
 </script>
 
-
-
-
-
 <style scoped src="@/assets/css/Navbar.css"></style>
+<style scoped>
+.site-navbar {
+  transition: background 0.3s cubic-bezier(.4,2,.6,1), box-shadow 0.3s cubic-bezier(.4,2,.6,1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.site-navbar.navbar-scrolled .navbar-container {
+  padding: 4px 15px !important;
+}
+.site-navbar .navbar-container {
+  transition: padding 0.35s cubic-bezier(.4,2,.6,1), min-height 0.35s cubic-bezier(.4,2,.6,1);
+  padding: 18px 15px;
+  min-height: 72px;
+}
+.site-navbar.navbar-scrolled .navbar-container {
+  min-height: 44px;
+  padding: 4px 15px !important;
+}
+.site-navbar.navbar-scrolled {
+  background: rgba(255,255,255,0.97);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+}
+.site-navbar.navbar-hidden {
+  transform: translateY(-100%);
+  transition: transform 0.3s cubic-bezier(.4,2,.6,1);
+}
+.site-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.navbar-container {
+  transition: padding 0.3s cubic-bezier(.4,2,.6,1);
+  padding: 18px 15px;
+}
+.site-navbar.navbar-scrolled .navbar-container {
+  padding: 6px 15px;
+}
+</style>
